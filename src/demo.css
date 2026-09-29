@@ -86,12 +86,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .solutions-lead > p:not(.section-tag) { position: relative; z-index: 1; max-width: 360px; margin: 15px 0 19px; color: #c1bdbb; font-size: 13px; line-height: 1.55; }
 .button-light { position: relative; z-index: 1; min-height: 42px; padding-inline: 15px; color: #171717; border-color: rgba(255,255,255,.55); background: #fff; font-size: 11px; }
 .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
-.service-card { min-height: 182px; padding: 19px 21px; border: 1px solid #eeece9; border-radius: 17px; background: rgba(255,255,255,.77); transition: transform 200ms ease, box-shadow 200ms ease; }
+.service-card { min-height: 182px; display: flex; flex-direction: column; align-items: start; padding: 19px 21px; border: 1px solid #eeece9; border-radius: 17px; background: rgba(255,255,255,.77); transition: transform 200ms ease, box-shadow 200ms ease; }
 .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(30, 30, 30, .06); }
 .service-icon { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 12px; font-size: 19px; font-weight: 700; }
 .service-icon-rose { color: #d83455; background: #ffedf0; }.service-icon-blue { color: #087bd5; background: #e6f3ff; }.service-icon-orange { color: #e65330; background: #fff0e8; }.service-icon-green { color: #15956a; background: #e3f8ed; }
 .service-card h3 { margin: 12px 0 6px; font-size: 18px; font-weight: 700; line-height: 1.13; letter-spacing: -.055em; }
 .service-card p { max-width: 290px; margin: 0; color: #727984; font-size: 11px; line-height: 1.5; }
+.service-card-action { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 11px; color: #1d5da8; font-size: 9px; font-weight: 700; text-decoration: none; }
+.service-card-action span { font-size: 13px; transition: transform 160ms ease; }
+.service-card-action:hover span { transform: translate(2px, -2px); }
 
 .process-section { padding: 54px 2.2% 88px; border-top: 1px solid var(--line); }
 .section-title-row { display: flex; align-items: end; justify-content: space-between; gap: 50px; margin-bottom: 31px; }

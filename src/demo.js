@@ -1,4 +1,5 @@
 import { financeContent } from './content.js'
+import { setupDemoForm, setupMobileMenu } from './interactions.js'
 
 document.querySelectorAll('[data-content]').forEach((element) => {
   const key = element.dataset.content
@@ -18,7 +19,16 @@ if (servicesRoot) {
     title.textContent = service.title
     const copy = document.createElement('p')
     copy.textContent = service.copy
-    card.append(icon, title, copy)
+    const action = document.createElement('a')
+    action.className = 'service-card-action'
+    action.href = '#contact'
+    action.setAttribute('aria-label', `Ask about ${service.title.toLowerCase()}`)
+    action.append(document.createTextNode('Explore option'))
+    const arrow = document.createElement('span')
+    arrow.setAttribute('aria-hidden', 'true')
+    arrow.textContent = '↗'
+    action.append(arrow)
+    card.append(icon, title, copy, action)
     return card
   }))
 }
@@ -61,24 +71,5 @@ if (faqsRoot) {
   }))
 }
 
-const menuButton = document.querySelector('.finance-menu-toggle')
-const navigation = document.querySelector('.finance-nav')
-menuButton?.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
-  menuButton.setAttribute('aria-expanded', String(!isOpen))
-  navigation?.classList.toggle('is-open', !isOpen)
-})
-
-navigation?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    menuButton?.setAttribute('aria-expanded', 'false')
-    navigation.classList.remove('is-open')
-  })
-})
-
-document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
-  event.preventDefault()
-  const status = document.querySelector('.form-success')
-  if (status) status.hidden = false
-  event.currentTarget.reset()
-})
+setupMobileMenu('.finance-menu-toggle', '.finance-nav')
+setupDemoForm('#contact-form', '.form-success')

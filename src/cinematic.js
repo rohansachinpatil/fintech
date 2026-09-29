@@ -1,4 +1,5 @@
 import { financeContent } from './content.js'
+import { setupDemoForm, setupMobileMenu } from './interactions.js'
 
 document.querySelectorAll('[data-content]').forEach((element) => {
   const key = element.dataset.content
@@ -8,8 +9,10 @@ document.querySelectorAll('[data-content]').forEach((element) => {
 const servicesRoot = document.querySelector('[data-services]')
 if (servicesRoot) {
   servicesRoot.replaceChildren(...financeContent.services.map((service, index) => {
-    const article = document.createElement('article')
+    const article = document.createElement('a')
     article.className = 'cinema-service'
+    article.href = '#contact'
+    article.setAttribute('aria-label', `Ask an advisor about ${service.title.toLowerCase()}`)
     const number = document.createElement('span')
     number.className = 'cinema-service-no'
     number.textContent = String(index + 1).padStart(2, '0')
@@ -66,24 +69,5 @@ if (faqsRoot) {
   }))
 }
 
-const menuButton = document.querySelector('.cinema-menu-toggle')
-const navigation = document.querySelector('.cinema-nav')
-menuButton?.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
-  menuButton.setAttribute('aria-expanded', String(!isOpen))
-  navigation?.classList.toggle('is-open', !isOpen)
-})
-
-navigation?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    menuButton?.setAttribute('aria-expanded', 'false')
-    navigation.classList.remove('is-open')
-  })
-})
-
-document.querySelector('#cinema-contact-form')?.addEventListener('submit', (event) => {
-  event.preventDefault()
-  const status = document.querySelector('.cinema-form-success')
-  if (status) status.hidden = false
-  event.currentTarget.reset()
-})
+setupMobileMenu('.cinema-menu-toggle', '.cinema-nav')
+setupDemoForm('#cinema-contact-form', '.cinema-form-success')

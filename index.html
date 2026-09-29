@@ -31,7 +31,7 @@
       <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
         <a href="#collection">The collection</a>
         <a href="#approach">Our approach</a>
-        <a class="nav-contact" href="mailto:hello@formfinance.studio">Start a project <span aria-hidden="true">↗</span></a>
+        <button class="nav-contact" type="button" data-open-project-dialog>Start a project <span aria-hidden="true">↗</span></button>
       </nav>
     </header>
 
@@ -93,7 +93,18 @@
           <p class="section-intro">One shared finance concept, shaped into complete standalone websites. Open each direction to experience it on its own.</p>
         </div>
 
-        <article class="project-card" aria-labelledby="project-one-title">
+        <div class="collection-controls">
+          <div class="collection-filters" role="group" aria-label="Filter website styles">
+            <button type="button" data-style-filter="all" aria-pressed="true">All styles</button>
+            <button type="button" data-style-filter="bright" aria-pressed="false">Bright</button>
+            <button type="button" data-style-filter="cinematic" aria-pressed="false">Cinematic</button>
+            <button type="button" data-style-filter="playful" aria-pressed="false">Playful</button>
+            <button type="button" data-style-filter="futuristic" aria-pressed="false">Futuristic</button>
+          </div>
+          <p class="collection-count" id="collection-count" aria-live="polite">Showing all 4 website styles.</p>
+        </div>
+
+        <article class="project-card" data-style-category="bright" aria-labelledby="project-one-title">
           <a class="project-visual" href="/demos/funding-01/" target="_blank" rel="noopener noreferrer" aria-label="Open Soft momentum finance website demo in a new tab">
             <div class="project-visual-top"><span>northstar</span><span>Funding&nbsp;&nbsp; Our approach&nbsp;&nbsp; Contact</span><span>MENU</span></div>
             <div class="project-visual-main">
@@ -116,7 +127,7 @@
           </div>
         </article>
 
-        <article class="project-card project-card-reverse" aria-labelledby="project-two-title">
+        <article class="project-card project-card-reverse" data-style-category="cinematic" aria-labelledby="project-two-title">
           <a class="project-visual project-visual-cinema" href="/demos/funding-02/" target="_blank" rel="noopener noreferrer" aria-label="Open Quiet authority finance website demo in a new tab">
             <div class="cinema-thumb-frame">
               <div class="cinema-thumb-nav"><span>✳ NORTHSTAR</span><span>FINANCING&nbsp;&nbsp; APPROACH&nbsp;&nbsp; FAQ</span><b>LET’S TALK ↗</b></div>
@@ -133,7 +144,7 @@
           </div>
         </article>
 
-        <article class="project-card" aria-labelledby="project-three-title">
+        <article class="project-card" data-style-category="playful" aria-labelledby="project-three-title">
           <a class="project-visual project-visual-playful" href="/demos/funding-03/" target="_blank" rel="noopener noreferrer" aria-label="Open Sunny guidance finance website demo in a new tab">
             <div class="playful-thumb-page">
               <div class="playful-thumb-nav"><span><i aria-hidden="true">✳</i> northstar</span><span>FUNDING&nbsp;&nbsp; HOW IT WORKS&nbsp;&nbsp; ABOUT</span><b>LET’S TALK</b></div>
@@ -154,7 +165,7 @@
           </div>
         </article>
 
-        <article class="project-card project-card-reverse" aria-labelledby="project-four-title">
+        <article class="project-card project-card-reverse" data-style-category="futuristic" aria-labelledby="project-four-title">
           <a class="project-visual project-visual-wave" href="/demos/funding-04/" target="_blank" rel="noopener noreferrer" aria-label="Open Blue horizon finance website demo in a new tab">
             <div class="wave-thumb-page">
               <div class="wave-thumb-brand"><span class="wave-thumb-symbol">n</span> northstar</div>
@@ -204,6 +215,32 @@
       <p>A small study in how thoughtful design changes the way finance feels.</p>
       <a class="footer-top-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </footer>
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
+      <button class="dialog-close" type="button" aria-label="Close project enquiry">×</button>
+      <form id="project-inquiry-form">
+        <p class="section-kicker"><span class="kicker-dot"></span> Start a project</p>
+        <h2 id="project-dialog-title">Tell us what you’re imagining.</h2>
+        <p class="dialog-intro">Share a few details and choose the direction you’d like to explore.</p>
+        <label for="project-name">Your name</label>
+        <input id="project-name" name="name" autocomplete="name" required placeholder="e.g. Jordan Lee" />
+        <label for="project-email">Email address</label>
+        <input id="project-email" name="email" type="email" autocomplete="email" required placeholder="you@business.com" />
+        <label for="project-direction">Which direction caught your eye?</label>
+        <select id="project-direction" name="direction" required>
+          <option value="" selected disabled>Choose a style</option>
+          <option>Style 01 — Soft momentum</option>
+          <option>Style 02 — Quiet authority</option>
+          <option>Style 03 — Sunny guidance</option>
+          <option>Style 04 — Blue horizon</option>
+          <option>A new direction</option>
+        </select>
+        <label for="project-notes">What would you like to build?</label>
+        <textarea id="project-notes" name="notes" rows="3" placeholder="A sentence or two is plenty."></textarea>
+        <button class="project-link dialog-submit" type="submit">Send project enquiry <span aria-hidden="true">↗</span></button>
+        <p class="dialog-note">Portfolio prototype: this form does not send or save your information.</p>
+        <p class="dialog-success" id="project-dialog-success" role="status" aria-live="polite" tabindex="-1" hidden>Thanks for sharing. This prototype doesn’t send enquiries yet.</p>
+      </form>
+    </dialog>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

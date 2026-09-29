@@ -1,4 +1,5 @@
 import { financeContent } from './content.js'
+import { setupDemoForm, setupMobileMenu } from './interactions.js'
 
 document.querySelectorAll('[data-content]').forEach((element) => {
   const key = element.dataset.content
@@ -44,19 +45,11 @@ if (faqRoot) {
   }))
 }
 
-const menuButton = document.querySelector('.wave-menu-toggle')
-const mobileNavigation = document.querySelector('.wave-mobile-nav')
-menuButton?.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
-  menuButton.setAttribute('aria-expanded', String(!isOpen))
-  mobileNavigation?.classList.toggle('is-open', !isOpen)
-})
+setupMobileMenu('.wave-menu-toggle', '.wave-mobile-nav')
 
-mobileNavigation?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    menuButton?.setAttribute('aria-expanded', 'false')
-    mobileNavigation.classList.remove('is-open')
-  })
+document.querySelector('#wave-email')?.addEventListener('input', () => {
+  const note = document.querySelector('#wave-form-note')
+  if (note) note.textContent = 'A first conversation is just a place to start.'
 })
 
 document.querySelector('#wave-signup-form')?.addEventListener('submit', (event) => {
@@ -73,9 +66,4 @@ document.querySelector('#wave-signup-form')?.addEventListener('submit', (event) 
   }
 })
 
-document.querySelector('#wave-contact-form')?.addEventListener('submit', (event) => {
-  event.preventDefault()
-  const status = document.querySelector('.wave-contact-success')
-  if (status) status.hidden = false
-  event.currentTarget.reset()
-})
+setupDemoForm('#wave-contact-form', '.wave-contact-success')

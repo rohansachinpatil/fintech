@@ -1,4 +1,5 @@
 import { financeContent } from './content.js'
+import { setupDemoForm, setupMobileMenu } from './interactions.js'
 
 document.querySelectorAll('[data-content]').forEach((element) => {
   const key = element.dataset.content
@@ -43,24 +44,5 @@ if (faqRoot) {
   }))
 }
 
-const menuButton = document.querySelector('.playful-menu-toggle')
-const navigation = document.querySelector('.playful-nav')
-menuButton?.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
-  menuButton.setAttribute('aria-expanded', String(!isOpen))
-  navigation?.classList.toggle('is-open', !isOpen)
-})
-
-navigation?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    menuButton?.setAttribute('aria-expanded', 'false')
-    navigation.classList.remove('is-open')
-  })
-})
-
-document.querySelector('#playful-contact-form')?.addEventListener('submit', (event) => {
-  event.preventDefault()
-  const status = document.querySelector('.playful-form-success')
-  if (status) status.hidden = false
-  event.currentTarget.reset()
-})
+setupMobileMenu('.playful-menu-toggle', '.playful-nav')
+setupDemoForm('#playful-contact-form', '.playful-form-success')
