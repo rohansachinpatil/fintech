@@ -30,7 +30,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-nav a { color: rgba(255,255,255,.92); text-decoration: none; transition: color 160ms ease; }
 .wave-nav a:hover { color: #dff4ff; }
 .wave-nav-right { justify-content: end; }
-.wave-brand { width: fit-content; display: inline-flex; align-items: center; gap: 7px; color: white; font-size: 14px; font-weight: 700; letter-spacing: -.04em; text-decoration: none; }
+.wave-brand { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; gap: 7px; color: white; font-size: 14px; font-weight: 700; letter-spacing: -.04em; text-decoration: none; }
 .wave-brand > span:last-child { line-height: .95; }
 .wave-brand small { display: block; margin-top: 4px; color: rgba(255,255,255,.79); font-size: 6px; font-weight: 600; letter-spacing: .12em; }
 .wave-brand-mark { width: 25px; height: 25px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.9); border-radius: 50%; box-shadow: inset 0 0 0 3px rgba(255,255,255,.12); }
@@ -50,7 +50,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-signup button:hover { transform: translateY(-1px); background: #21417d; }
 .wave-signup button span:last-child { font-size: 13px; }
 .wave-form-note { min-height: 14px; margin: 8px 0 0; color: #657790; font-size: 8px; }
-.wave-scroll { position: absolute; bottom: 18px; left: 50%; width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid rgba(38,67,119,.3); border-radius: 50%; color: #24436e; text-decoration: none; transform: translateX(-50%); }
+.wave-scroll { position: absolute; bottom: 8px; left: 50%; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; color: #24436e; text-decoration: none; transform: translateX(-50%); }
+.wave-scroll::before { position: absolute; inset: 10px; content: ''; border: 1px solid rgba(38,67,119,.3); border-radius: 50%; }
 .wave-scroll span { width: 1px; height: 7px; background: currentColor; }
 
 .wave-content-width { width: min(100% - 100px, 1190px); margin-inline: auto; }
@@ -63,7 +64,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-options { padding: 49px 0 92px; border-top: 1px solid var(--line); }
 .wave-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 28px; }
 .wave-section-heading h2 { font-size: clamp(37px, 4.2vw, 54px); }
-.wave-small-link { display: inline-flex; align-items: center; gap: 11px; padding-bottom: 6px; border-bottom: 1px solid #8ba1bd; color: #1b3763; font-size: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.wave-small-link { min-height: 44px; display: inline-flex; align-items: center; gap: 11px; padding-bottom: 6px; border-bottom: 1px solid #8ba1bd; color: #1b3763; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .wave-small-link span { color: #2879eb; font-size: 14px; }
 .wave-service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .wave-service { position: relative; min-height: 267px; display: flex; flex-direction: column; align-items: start; overflow: hidden; padding: 18px 16px; border: 1px solid #e4edf6; border-radius: 13px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
@@ -73,7 +74,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-service-index { margin-top: 24px; color: #687c99; font-size: 6px; font-weight: 700; letter-spacing: .1em; }
 .wave-service h3 { margin: 7px 0 7px; color: #13203b; font-size: 17px; font-weight: 700; line-height: 1.08; letter-spacing: -.045em; }
 .wave-service p { max-width: 235px; margin: 0 0 14px; color: #63738c; font-size: 9px; line-height: 1.6; }
-.wave-service > a { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 12px; margin-top: auto; color: #145bd0; font-size: 9px; font-weight: 700; text-decoration: none; }
+.wave-service > a { position: relative; z-index: 1; min-height: 44px; display: inline-flex; align-items: center; gap: 12px; margin-top: auto; color: #145bd0; font-size: 10px; font-weight: 700; text-decoration: none; }
 .wave-service > a span { font-size: 13px; transition: transform 160ms ease; }
 .wave-service > a:hover span { transform: translate(2px, -2px); }
 
@@ -107,9 +108,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-faq-list { border-top: 1px solid #dce6f0; }
 .wave-faq-item { border-bottom: 1px solid #dce6f0; }
 .wave-faq-item summary { min-height: 65px; display: flex; align-items: center; justify-content: space-between; gap: 17px; color: #192746; cursor: pointer; font-size: 11px; font-weight: 700; list-style: none; }
+.wave-faq-item .faq-question { min-width: 0; flex: 1; }
 .wave-faq-item summary::-webkit-details-marker { display: none; }
-.wave-faq-item summary span { width: 25px; height: 25px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #c5d6ea; border-radius: 50%; color: #2568d9; font-size: 15px; font-weight: 400; transition: transform 170ms ease; }
-.wave-faq-item[open] summary span { transform: rotate(45deg); }
+.wave-faq-item summary > span[aria-hidden='true'] { width: 25px; height: 25px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #c5d6ea; border-radius: 50%; color: #2568d9; font-size: 15px; font-weight: 400; transition: transform 170ms ease; }
+.wave-faq-item summary > span[aria-hidden='true'] > span { display: inline-block; transition: transform 170ms ease; }
+.wave-faq-item[open] summary > span[aria-hidden='true'] > span { transform: rotate(45deg); }
 .wave-faq-item > p { max-width: 590px; margin: 0 37px 18px 0; color: #66758c; font-size: 10px; line-height: 1.7; }
 
 .wave-contact { display: grid; grid-template-columns: 1fr minmax(300px, .75fr); align-items: center; gap: 55px; margin-bottom: 37px; padding: clamp(31px, 5.6vw, 70px); border: 1px solid #deebf8; border-radius: 21px; background: #eff7ff; }
@@ -119,7 +122,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-contact-form label { margin-top: 3px; color: #374e6c; font-size: 9px; font-weight: 700; }
 .wave-contact-form input, .wave-contact-form select { width: 100%; min-height: 40px; padding: 0 11px; border: 1px solid #dce6f0; border-radius: 7px; color: #1b2d48; background: white; font-size: 10px; }
 .wave-contact-form input::placeholder, .wave-contact-form select:invalid { color: #8090a6; }
-.wave-contact-submit { min-height: 43px; display: flex; align-items: center; justify-content: space-between; margin-top: 6px; padding: 0 14px; border: 0; border-radius: 40px; color: white; background: #142a52; cursor: pointer; font-size: 10px; font-weight: 700; transition: background 170ms ease, transform 170ms ease; }
+.wave-contact-submit { min-height: 44px; display: flex; align-items: center; justify-content: space-between; margin-top: 6px; padding: 0 14px; border: 0; border-radius: 40px; color: white; background: #142a52; cursor: pointer; font-size: 11px; font-weight: 700; transition: background 170ms ease, transform 170ms ease; }
 .wave-contact-submit:hover { transform: translateY(-2px); background: #1c56b3; }
 .wave-contact-submit span { font-size: 15px; }
 .wave-contact-note, .wave-contact-success { margin: 0; color: #71839a; font-size: 8px; line-height: 1.5; }
@@ -130,7 +133,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .wave-footer-brand .wave-brand-mark span { color: #1b5bc0; }
 .wave-footer-brand small { color: #7a8ba3; }
 .wave-footer > p { max-width: 720px; margin: 0; color: #75859a; font-size: 8px; line-height: 1.55; }
-.wave-back-top { color: #3e5778; font-size: 9px; text-decoration: none; white-space: nowrap; }
+.wave-back-top { min-height: 44px; display: inline-flex; align-items: center; color: #3e5778; font-size: 10px; text-decoration: none; white-space: nowrap; }
 .wave-back-top span { margin-left: 7px; }
 
 @media (max-width: 930px) {
@@ -138,6 +141,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .wave-nav-left { display: none; }
   .wave-brand { grid-column: 1; grid-row: 1; }
   .wave-nav-right { grid-column: 2; grid-row: 1; }
+  .wave-nav a { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; padding-inline: 7px; }
+  .wave-nav .wave-nav-cta { min-height: 44px; }
+  .wave-signup input { min-height: 44px; font-size: 16px; }
+  .wave-signup button { min-height: 44px; font-size: 11px; }
+  .wave-contact-form label { font-size: 12px; }
+  .wave-contact-form input, .wave-contact-form select { min-height: 46px; font-size: 16px; }
   .wave-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wave-service { min-height: 230px; }
   .wave-about { gap: 45px; }
@@ -152,7 +161,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .wave-brand-mark { width: 23px; height: 23px; }
   .wave-brand small { font-size: 5px; }
   .wave-nav-right { display: none; }
-  .wave-menu-toggle { position: absolute; top: 11px; right: 12px; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.78); border-radius: 50%; color: white; background: rgba(27,78,162,.19); }
+  .wave-menu-toggle { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.78); border-radius: 50%; color: white; background: rgba(27,78,162,.19); }
   .wave-menu-icon, .wave-menu-icon::before, .wave-menu-icon::after { width: 15px; height: 1px; display: block; background: currentColor; transition: transform 170ms ease; }
   .wave-menu-icon { position: relative; }
   .wave-menu-icon::before, .wave-menu-icon::after { position: absolute; content: ''; left: 0; }
@@ -162,16 +171,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .wave-menu-toggle[aria-expanded='true'] .wave-menu-icon::after { top: 0; transform: rotate(-45deg); }
   .wave-mobile-nav { position: absolute; z-index: 6; top: 61px; right: 10px; left: 10px; display: none; padding: 8px 14px 13px; border: 1px solid rgba(255,255,255,.7); border-radius: 12px; background: rgba(15,43,91,.95); box-shadow: 0 13px 26px rgba(16,47,99,.18); }
   .wave-mobile-nav.is-open { display: grid; }
-  .wave-mobile-nav a { padding: 11px 2px; color: white; font-size: 11px; text-decoration: none; }
+  .wave-mobile-nav a { min-height: 44px; display: flex; align-items: center; padding: 10px 2px; color: white; font-size: 12px; text-decoration: none; }
   .wave-hero-copy { width: min(100% - 27px, 520px); margin: auto 0 8.5%; }
   .wave-eyebrow { font-size: 8px; }
   .wave-hero-copy h1 { max-width: 450px; font-size: clamp(42px, 11vw, 60px); }
   .wave-intro { max-width: 410px; font-size: 10px; }
-  .wave-signup { max-width: 365px; min-height: 44px; margin-top: 16px; }
-  .wave-signup input { min-height: 34px; padding-inline: 10px; font-size: 9px; }
-  .wave-signup button { min-height: 34px; padding-inline: 11px; font-size: 8px; }
-  .wave-form-note { font-size: 7px; }
-  .wave-scroll { bottom: 11px; width: 20px; height: 20px; }
+  .wave-signup { max-width: 365px; min-height: 48px; margin-top: 16px; }
+  .wave-signup input { min-height: 44px; padding-inline: 10px; font-size: 16px; }
+  .wave-signup button { min-height: 44px; padding-inline: 11px; font-size: 11px; }
+  .wave-form-note { font-size: 9px; }
+  .wave-scroll { bottom: 5px; }
   .wave-content-width { width: min(100% - 36px, 1190px); }
   .wave-intro-section { grid-template-columns: 1fr; gap: 15px; padding: 0 2% 59px; }
   .wave-intro-section h2, .wave-section-heading h2, .wave-process-heading h2, .wave-about h2, .wave-faq-heading h2, .wave-contact h2 { font-size: clamp(37px, 9.8vw, 50px); }
@@ -181,28 +190,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .wave-service-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .wave-service { min-height: 243px; padding: 13px 11px; border-radius: 11px; }
   .wave-service-icon { width: 30px; height: 30px; border-radius: 8px; font-size: 14px; }
-  .wave-service-index { margin-top: 17px; font-size: 5px; }
+  .wave-service-index { margin-top: 17px; font-size: 7px; }
   .wave-service h3 { font-size: 15px; }
-  .wave-service p { font-size: 8px; }
+  .wave-service p { font-size: 11px; }
+  .wave-service > a { font-size: 11px; }
   .wave-service > a { font-size: 8px; }
   .wave-process { width: min(100% - 22px, 1300px); grid-template-columns: 1fr; gap: 22px; padding: 30px 21px; border-radius: 18px; }
   .wave-process-heading h2 { font-size: 43px; }
   .wave-process-heading > p:last-child { font-size: 9px; }
   .wave-step { min-height: 78px; grid-template-columns: 25px 1fr 25px; gap: 8px; padding-block: 13px; }
-  .wave-step h3 { font-size: 11px; }
-  .wave-step p { font-size: 8px; }
+  .wave-step h3 { font-size: 12px; }
+  .wave-step p { font-size: 11px; }
   .wave-step-mark { width: 22px; height: 22px; font-size: 10px; }
   .wave-about { grid-template-columns: 1fr; gap: 26px; padding-block: 70px 70px; }
   .wave-about h2 { font-size: 45px; }
-  .wave-about-copy > p:not(.wave-kicker) { font-size: 10px; }
+  .wave-about-copy > p:not(.wave-kicker) { font-size: 12px; }
   .wave-about-card { min-height: 230px; padding: 22px; }
   .wave-faq { grid-template-columns: 1fr; gap: 21px; padding-block: 61px 68px; }
-  .wave-faq-heading > p:last-child { font-size: 9px; }
-  .wave-faq-item summary { min-height: 58px; font-size: 10px; }
-  .wave-faq-item > p { font-size: 9px; }
+  .wave-faq-heading > p:last-child { font-size: 11px; }
+  .wave-faq-item summary { min-height: 60px; font-size: 12px; }
+  .wave-faq-item > p { font-size: 11px; }
   .wave-contact { grid-template-columns: 1fr; gap: 21px; margin-bottom: 23px; padding: 24px 16px; border-radius: 17px; }
-  .wave-contact-copy > p:not(.wave-kicker) { font-size: 10px; }
+  .wave-contact-copy > p:not(.wave-kicker) { font-size: 12px; }
   .wave-contact-form { padding: 15px; }
+  .wave-contact-form label { font-size: 12px; }
+  .wave-contact-form input, .wave-contact-form select { min-height: 46px; font-size: 16px; }
+  .wave-footer > p { font-size: 10px; }
   .wave-footer { grid-template-columns: 1fr auto; gap: 12px 18px; padding: 16px 17px; }
   .wave-footer > p { grid-column: 1 / -1; grid-row: 2; }
 }
@@ -212,7 +225,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .wave-signup { flex-direction: column; align-items: stretch; padding: 7px; border-radius: 15px; }
   .wave-signup button { justify-content: space-between; }
   .wave-service { min-height: 260px; padding-inline: 9px; }
-  .wave-service h3 { font-size: 14px; }
+  .wave-service h3 { font-size: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

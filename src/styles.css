@@ -25,14 +25,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
 
 .topbar, main, .site-footer { width: min(100% - 80px, 1440px); margin-inline: auto; }
 .topbar { min-height: 92px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
-.wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 700 17px/1 var(--display); letter-spacing: -.06em; }
+.wordmark { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 700 17px/1 var(--display); letter-spacing: -.06em; }
 .wordmark-icon { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 50%; color: var(--ink); background: var(--lime); font: 700 18px/1 var(--display); letter-spacing: -.09em; }
 .wordmark-slash { color: #87928d; padding-inline: 2px; }
 .primary-nav { display: flex; align-items: center; gap: clamp(24px, 4vw, 58px); font-size: 13px; }
 .primary-nav a { text-decoration: none; color: #555d61; transition: color 180ms ease; }
 .primary-nav a:hover { color: #111; }
 .primary-nav .nav-contact { padding: 13px 17px; border: 1px solid #cdd2cb; border-radius: 99px; color: var(--ink); }
-.primary-nav button.nav-contact { font: inherit; background: transparent; cursor: pointer; transition: color 180ms ease, background 180ms ease; }
+.primary-nav button.nav-contact { min-height: 44px; font: inherit; background: transparent; cursor: pointer; transition: color 180ms ease, background 180ms ease; }
 .primary-nav button.nav-contact:hover { background: var(--lime); }
 .nav-contact span { padding-left: 12px; }
 .menu-toggle { display: none; }
@@ -45,7 +45,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
 .intro-copy h1 span { color: #77836f; }
 .intro-bottom { max-width: 500px; display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-top: 38px; }
 .intro-description { max-width: 340px; margin: 0; color: #646e70; font-size: 16px; line-height: 1.6; }
-.text-link { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 12px; padding-bottom: 5px; border-bottom: 1px solid #aab2a6; text-decoration: none; font-size: 12px; font-weight: 700; }
+.text-link { min-height: 44px; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 12px; padding-bottom: 5px; border-bottom: 1px solid #aab2a6; text-decoration: none; font-size: 12px; font-weight: 700; }
 .text-link span { color: #718252; font-size: 17px; transition: transform 180ms ease; }
 .text-link:hover span { transform: translateY(3px); }
 
@@ -162,7 +162,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
 .project-card-copy > p { margin: 0; color: #6a7371; font-size: 14px; line-height: 1.65; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; }
 .project-tags span { padding: 7px 10px; border: 1px solid #d6dbd2; border-radius: 40px; color: #536052; font-size: 10px; }
-.project-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 12px 16px; border-radius: 40px; color: #eff2e9; background: var(--ink); font-size: 12px; font-weight: 600; text-decoration: none; transition: background 180ms ease, color 180ms ease; }
+.project-link { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 12px 16px; border-radius: 40px; color: #eff2e9; background: var(--ink); font-size: 12px; font-weight: 600; text-decoration: none; transition: background 180ms ease, color 180ms ease; }
 .project-link:hover { color: var(--ink); background: var(--lime); }
 
 .approach-section { padding: 75px 0 104px; border-top: 1px solid var(--line); }
@@ -183,7 +183,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
 
 .site-footer { min-height: 103px; display: flex; align-items: center; justify-content: space-between; gap: 28px; border-top: 1px solid var(--line); }
 .site-footer p { margin: 0; color: #75807b; font-size: 11px; }
-.footer-top-link { color: #4b554e; font-size: 11px; text-decoration: none; }
+.footer-top-link { min-height: 44px; display: inline-flex; align-items: center; color: #4b554e; font-size: 11px; text-decoration: none; }
 .footer-top-link span { margin-left: 8px; }
 
 .project-dialog { position: relative; width: min(100% - 28px, 520px); max-width: 520px; max-height: min(90vh, 760px); padding: 30px; overflow-y: auto; border: 1px solid #e1e6dd; border-radius: 18px; color: var(--ink); background: var(--canvas); box-shadow: 0 22px 80px rgba(12,20,18,.23); }
@@ -198,10 +198,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
 .dialog-submit { width: 100%; min-height: 45px; justify-content: space-between; margin-top: 8px; border: 0; cursor: pointer; font: 600 12px 'DM Sans', sans-serif; }
 .dialog-note, .dialog-success { margin: 0; color: #69746c; font-size: 9px; line-height: 1.5; }
 .dialog-success { padding: 11px; border-radius: 8px; color: #245b29; background: #e4f4d6; }
-.dialog-close { position: absolute; z-index: 1; top: 14px; right: 14px; width: 37px; height: 37px; display: grid; place-items: center; border: 1px solid #d9ded7; border-radius: 50%; color: var(--ink); background: white; cursor: pointer; font-size: 20px; }
+.dialog-close { position: absolute; z-index: 1; top: 12px; right: 12px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #d9ded7; border-radius: 50%; color: var(--ink); background: white; cursor: pointer; font-size: 20px; }
 
 @media (max-width: 1000px) {
   .topbar, main, .site-footer { width: min(100% - 48px, 1440px); }
+  .primary-nav a, .primary-nav .nav-contact { min-height: 44px; display: flex; align-items: center; }
+  .collection-filters button { min-height: 44px; }
+  .project-dialog input, .project-dialog select, .project-dialog textarea { min-height: 46px; font-size: 16px; }
   .intro-section { grid-template-columns: minmax(0, .9fr) minmax(380px, 1.1fr); gap: 26px; }
   .intro-bottom { align-items: start; flex-direction: column; gap: 18px; }
   .intro-art { min-height: 390px; }
@@ -224,10 +227,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
   .menu-toggle[aria-expanded='true'] .menu-lines::after { top: 0; transform: rotate(-45deg); }
   .primary-nav { position: absolute; z-index: 10; top: calc(100% - 1px); right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 15px 15px; border: 1px solid #dfe3dc; border-top: 0; border-radius: 0 0 14px 14px; background: var(--canvas); box-shadow: 0 12px 24px rgba(20, 25, 20, .08); }
   .primary-nav.is-open { display: flex; flex-direction: column; }
-  .primary-nav a { padding: 14px 4px; }
+  .primary-nav a { min-height: 44px; display: flex; align-items: center; padding: 10px 4px; }
   .primary-nav .nav-contact { margin-top: 5px; padding: 13px; text-align: center; }
   .collection-controls { align-items: start; flex-direction: column; gap: 10px; }
   .collection-count { font-size: 9px; }
+  .collection-filters { gap: 8px; }
+  .collection-filters button { min-height: 44px; padding-inline: 14px; font-size: 11px; }
   .intro-section { min-height: 0; grid-template-columns: 1fr; gap: 23px; padding: 58px 0 59px; }
   .section-kicker { margin-bottom: 23px; font-size: 9px; }
   .intro-copy h1 { max-width: 580px; font-size: clamp(54px, 13vw, 82px); }
@@ -284,6 +289,19 @@ a:focus-visible, button:focus-visible { outline: 3px solid #517700; outline-offs
   .site-footer p { order: 3; flex-basis: 100%; }
   .project-dialog { padding: 27px 19px 20px; }
   .project-dialog h2 { max-width: 320px; font-size: 30px; }
+  .project-dialog input, .project-dialog select, .project-dialog textarea { min-height: 46px; font-size: 16px; }
+}
+
+@media (max-width: 390px) {
+  .topbar, main, .site-footer { width: min(100% - 24px, 1440px); }
+  .intro-copy h1 { font-size: clamp(40px, 12.7vw, 50px); letter-spacing: -.075em; }
+  .intro-bottom { gap: 13px; }
+  .intro-description { font-size: 13px; }
+  .project-visual-top { gap: 6px; }
+  .project-visual-top > span:nth-child(2) { display: none; }
+  .project-visual-top > span:last-child { margin-left: auto; }
+  .project-visual-copy strong { font-size: clamp(38px, 11vw, 50px); }
+  .collection-filters button { padding-inline: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

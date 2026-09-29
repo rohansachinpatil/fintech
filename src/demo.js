@@ -59,10 +59,15 @@ if (faqsRoot) {
     details.className = 'faq-item'
     if (index === 0) details.open = true
     const summary = document.createElement('summary')
-    summary.append(document.createTextNode(faq.question))
+    const question = document.createElement('span')
+    question.className = 'faq-question'
+    question.textContent = faq.question
+    summary.append(question)
     const icon = document.createElement('span')
     icon.setAttribute('aria-hidden', 'true')
-    icon.textContent = '+'
+    const glyph = document.createElement('span')
+    glyph.textContent = '+'
+    icon.append(glyph)
     summary.append(icon)
     const answer = document.createElement('p')
     answer.textContent = faq.answer

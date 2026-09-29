@@ -27,7 +27,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .cinema-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 36%; }
 .cinema-wash { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(4,4,4,.16) 0%, rgba(4,4,4,.1) 28%, rgba(4,4,4,.34) 47%, rgba(3,3,3,.96) 68%, #030303 100%), linear-gradient(90deg, rgba(0,0,0,.21), transparent 31%, transparent 72%, rgba(0,0,0,.2)); }
 .cinema-header { position: relative; z-index: 3; min-height: 80px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; padding: 18px clamp(21px, 3.4vw, 42px); }
-.cinema-brand { width: fit-content; display: inline-flex; align-items: center; gap: 7px; color: var(--white); text-decoration: none; }
+.cinema-brand { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; gap: 7px; color: var(--white); text-decoration: none; }
 .brand-star { width: 23px; height: 23px; flex: 0 0 auto; }
 .cinema-brand-copy { display: flex; flex-direction: column; gap: 2px; }
 .cinema-brand-copy strong { font: 500 14px/1 'Manrope', sans-serif; letter-spacing: -.045em; }
@@ -45,11 +45,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .badge-seal { width: 17px; height: 17px; display: grid; place-items: center; border-radius: 50%; color: #090909; background: #f7f6f1; font-size: 11px; }
 .cinema-hero-copy h1 { max-width: 760px; margin: 0; font-size: clamp(48px, 6vw, 78px); font-weight: 400; line-height: .99; letter-spacing: -.075em; text-wrap: balance; }
 .cinema-intro { max-width: 575px; margin: 15px auto 0; color: rgba(245,244,239,.82); font-size: 12px; line-height: 1.65; text-wrap: balance; }
-.cinema-primary-cta { min-height: 43px; display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; padding: 0 19px; border-radius: 50px; color: #111; background: #f7f6f1; font-size: 10px; font-weight: 700; text-decoration: none; transition: background 180ms ease, transform 180ms ease; }
+.cinema-primary-cta { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; padding: 0 19px; border-radius: 50px; color: #111; background: #f7f6f1; font-size: 10px; font-weight: 700; text-decoration: none; transition: background 180ms ease, transform 180ms ease; }
 .cinema-primary-cta:hover { transform: translateY(-2px); background: white; }
 .cinema-primary-cta .white-dot { width: 7px; height: 7px; }
 .frame-caption { position: absolute; right: 28px; bottom: 19px; left: 28px; z-index: 2; display: flex; justify-content: space-between; color: rgba(245,244,239,.52); font-size: 7px; letter-spacing: .13em; }
-.scroll-cue { display: flex; align-items: center; gap: 10px; margin-top: 19px; color: rgba(245,244,239,.6); font-size: 8px; letter-spacing: .13em; text-decoration: none; }
+.scroll-cue { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 8px; color: rgba(245,244,239,.6); font-size: 8px; letter-spacing: .13em; text-decoration: none; }
 .scroll-cue i { font-size: 13px; font-style: normal; }
 
 .cinema-content-width { width: min(100% - 96px, 1160px); margin-inline: auto; }
@@ -84,7 +84,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .cinema-about-grid { display: grid; grid-template-columns: 1fr .78fr; gap: clamp(45px, 9vw, 132px); align-items: end; }
 .cinema-about h2 { max-width: 680px; font-size: clamp(45px, 5.5vw, 75px); }
 .cinema-about-grid > div > p { margin: 0; color: #aaa8a2; font-size: 12px; line-height: 1.8; }
-.cinema-text-link { display: inline-flex; align-items: center; gap: 15px; margin-top: 22px; padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.5); color: #f4f3ef; font-size: 11px; text-decoration: none; }
+.cinema-text-link { min-height: 44px; display: inline-flex; align-items: center; gap: 15px; margin-top: 22px; padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.5); color: #f4f3ef; font-size: 11px; text-decoration: none; }
 .cinema-text-link span { font-size: 15px; }
 
 .cinema-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(45px, 8vw, 115px); padding-block: 104px 111px; }
@@ -93,9 +93,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .cinema-faq-list { border-top: 1px solid var(--rule); }
 .cinema-faq-item { border-bottom: 1px solid var(--rule); }
 .cinema-faq-item summary { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #f0efea; cursor: pointer; font-size: 12px; font-weight: 500; list-style: none; }
+.cinema-faq-item .faq-question { min-width: 0; flex: 1; }
 .cinema-faq-item summary::-webkit-details-marker { display: none; }
-.cinema-faq-item summary span { flex: 0 0 auto; width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.27); border-radius: 50%; color: #f7f6f1; font-size: 15px; font-weight: 300; transition: transform 180ms ease; }
-.cinema-faq-item[open] summary span { transform: rotate(45deg); }
+.cinema-faq-item summary > span[aria-hidden='true'] { flex: 0 0 auto; width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.27); border-radius: 50%; color: #f7f6f1; font-size: 15px; font-weight: 300; transition: transform 180ms ease; }
+.cinema-faq-item summary > span[aria-hidden='true'] > span { display: inline-block; transition: transform 180ms ease; }
+.cinema-faq-item[open] summary > span[aria-hidden='true'] > span { transform: rotate(45deg); }
 .cinema-faq-item > p { max-width: 610px; margin: -1px 38px 20px 0; color: #aaa8a2; font-size: 10px; line-height: 1.75; }
 
 .cinema-contact { position: relative; width: min(100% - 56px, 1300px); min-height: 450px; display: grid; grid-template-columns: 1fr minmax(310px, .75fr); align-items: center; gap: 60px; margin: 0 auto 52px; padding: clamp(35px, 6vw, 75px); overflow: hidden; border: 1px solid rgba(255,255,255,.23); border-radius: 27px; isolation: isolate; }
@@ -117,12 +119,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .cinema-footer { min-height: 103px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 28px; padding: 15px clamp(16px, 4vw, 65px); border-top: 1px solid var(--rule); }
 .cinema-footer > p { max-width: 740px; margin: 0; color: #898780; font-size: 9px; line-height: 1.6; }
-.cinema-back-top { color: #cfcdc6; font-size: 10px; text-decoration: none; white-space: nowrap; }
+.cinema-back-top { min-height: 44px; display: inline-flex; align-items: center; color: #cfcdc6; font-size: 10px; text-decoration: none; white-space: nowrap; }
 .cinema-back-top span { margin-left: 8px; }
 
 @media (max-width: 900px) {
   .cinema-header { grid-template-columns: 1fr auto; }
   .cinema-nav { grid-column: 2; grid-row: 1; gap: 18px; }
+  .cinema-nav a { min-height: 44px; display: flex; align-items: center; }
+  .cinema-nav a:not(.cinema-nav-cta) { min-width: 44px; justify-content: center; padding-inline: 7px; }
+  .cinema-nav .cinema-nav-cta { min-height: 44px; }
   .cinema-hero-copy { padding-top: 90px; }
   .cinema-services { grid-template-columns: 1fr; gap: 35px; padding-block: 96px; }
   .cinema-section-intro { max-width: 650px; }
@@ -131,6 +136,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .cinema-about-grid { grid-template-columns: 1fr 1fr; gap: 45px; }
   .cinema-faq { gap: 48px; }
   .cinema-contact { gap: 35px; padding: 40px; }
+  .cinema-contact-form label { font-size: 12px; }
+  .cinema-contact-form input, .cinema-contact-form select { min-height: 46px; font-size: 16px; }
 }
 
 @media (max-width: 650px) {
@@ -142,7 +149,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .brand-star { width: 20px; height: 20px; }
   .cinema-brand-copy strong { font-size: 12px; }
   .cinema-brand-copy small { font-size: 5px; }
-  .cinema-menu-toggle { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.52); border-radius: 50%; color: white; background: rgba(0,0,0,.23); }
+  .cinema-menu-toggle { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.52); border-radius: 50%; color: white; background: rgba(0,0,0,.23); }
   .cinema-menu-icon, .cinema-menu-icon::before, .cinema-menu-icon::after { width: 15px; height: 1px; display: block; background: currentColor; transition: transform 180ms ease; }
   .cinema-menu-icon { position: relative; }
   .cinema-menu-icon::before, .cinema-menu-icon::after { position: absolute; content: ''; left: 0; }
@@ -152,13 +159,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .cinema-menu-toggle[aria-expanded='true'] .cinema-menu-icon::after { top: 0; transform: rotate(-45deg); }
   .cinema-nav { position: absolute; z-index: 5; top: calc(100% - 1px); right: 10px; left: 10px; display: none; grid-column: auto; grid-row: auto; align-items: stretch; gap: 0; padding: 8px 14px 14px; border: 1px solid rgba(255,255,255,.25); border-top: 0; border-radius: 0 0 13px 13px; background: rgba(5,5,5,.96); backdrop-filter: blur(12px); }
   .cinema-nav.is-open { display: flex; flex-direction: column; }
-  .cinema-nav a { padding: 13px 3px; }
+   .cinema-nav a { min-height: 44px; display: flex; align-items: center; padding: 10px 3px; }
   .cinema-nav .cinema-nav-cta { justify-content: center; margin-top: 5px; padding: 12px; }
   .cinema-hero-copy { width: min(100% - 28px, 540px); margin-bottom: 38px; padding-top: 120px; }
   .cinema-badge { max-width: 100%; margin-bottom: 13px; font-size: 8px; }
   .cinema-hero-copy h1 { font-size: clamp(43px, 11.6vw, 67px); }
-  .cinema-intro { max-width: 440px; margin-top: 12px; font-size: 10px; }
-  .cinema-primary-cta { min-height: 42px; margin-top: 18px; font-size: 9px; }
+  .cinema-intro { max-width: 440px; margin-top: 12px; font-size: 12px; }
+  .cinema-primary-cta { min-height: 44px; margin-top: 18px; font-size: 11px; }
   .frame-caption { right: 14px; bottom: 13px; left: 14px; font-size: 6px; }
   .scroll-cue { margin-top: 13px; font-size: 7px; }
   .cinema-content-width { width: min(100% - 38px, 1160px); }
@@ -168,7 +175,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .cinema-section-intro > p:last-child { margin-top: 13px; font-size: 11px; }
   .cinema-service { min-height: 104px; grid-template-columns: 25px 1fr 25px; gap: 11px; padding-block: 17px; }
   .cinema-service h3 { font-size: 15px; }
-  .cinema-service p { font-size: 10px; }
+  .cinema-service p { font-size: 11px; }
   .cinema-approach { width: calc(100% - 24px); min-height: 0; grid-template-columns: 1fr; align-items: end; border-radius: 21px; }
   .approach-image { background-position: 44% center; }
   .approach-shade { background: linear-gradient(180deg, rgba(8,8,7,.06) 0%, rgba(8,8,7,.17) 24%, rgba(8,8,7,.78) 49%, #080807 100%), linear-gradient(90deg, rgba(8,8,7,.17), transparent 75%); }
@@ -177,20 +184,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .approach-description { margin: 12px 0 20px; font-size: 11px; }
   .cinema-step { grid-template-columns: 26px 1fr; gap: 10px; padding: 14px 0; }
   .cinema-step h3 { font-size: 12px; }
-  .cinema-step p { font-size: 9px; }
+  .cinema-step p { font-size: 11px; }
   .cinema-about { padding-block: 84px 80px; }
   .cinema-about-grid { grid-template-columns: 1fr; gap: 21px; }
   .cinema-about h2 { font-size: 49px; }
-  .cinema-about-grid > div > p { font-size: 11px; }
+  .cinema-about-grid > div > p { font-size: 12px; }
   .cinema-faq { grid-template-columns: 1fr; gap: 23px; width: min(100% - 38px, 1160px); padding-block: 71px 77px; }
   .cinema-faq-heading h2 { font-size: 45px; }
   .cinema-faq-heading > p:last-child { font-size: 10px; }
   .cinema-faq-item summary { min-height: 61px; font-size: 11px; }
-  .cinema-faq-item > p { font-size: 9px; }
+  .cinema-faq-item > p { font-size: 11px; }
   .cinema-contact { width: calc(100% - 24px); grid-template-columns: 1fr; gap: 23px; min-height: 0; margin-bottom: 25px; padding: 26px 19px; border-radius: 20px; }
   .cinema-contact-copy h2 { max-width: 480px; font-size: 49px; }
-  .cinema-contact-copy > p:not(.cinema-overline) { font-size: 11px; }
+  .cinema-contact-copy > p:not(.cinema-overline) { font-size: 12px; }
   .cinema-contact-form { padding: 16px; }
+  .cinema-contact-form label { font-size: 12px; }
+  .cinema-contact-form input, .cinema-contact-form select { min-height: 46px; font-size: 16px; }
+  .cinema-footer > p { font-size: 10px; }
   .cinema-footer { grid-template-columns: 1fr auto; gap: 12px 20px; padding: 19px 17px; }
   .cinema-footer > p { grid-column: 1 / -1; grid-row: 2; }
   .cinema-back-top { grid-column: 2; grid-row: 1; }
@@ -198,7 +208,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 @media (max-width: 370px) {
   .cinema-hero-copy { width: calc(100% - 20px); }
-  .cinema-hero-copy h1 { font-size: 42px; }
+  .cinema-hero-copy h1 { font-size: 40px; }
   .cinema-about h2, .cinema-contact-copy h2 { font-size: 44px; }
   .cinema-service { grid-template-columns: 21px 1fr 22px; gap: 8px; }
 }

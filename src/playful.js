@@ -32,10 +32,15 @@ if (faqRoot) {
     details.className = 'playful-faq-item'
     if (index === 0) details.open = true
     const summary = document.createElement('summary')
-    summary.append(document.createTextNode(faq.question))
+    const question = document.createElement('span')
+    question.className = 'faq-question'
+    question.textContent = faq.question
+    summary.append(question)
     const toggle = document.createElement('span')
     toggle.setAttribute('aria-hidden', 'true')
-    toggle.textContent = '+'
+    const glyph = document.createElement('span')
+    glyph.textContent = '+'
+    toggle.append(glyph)
     summary.append(toggle)
     const answer = document.createElement('p')
     answer.textContent = faq.answer
